@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="slideshow-container">
+        <div id="slideshow-images">
+            <img src="image1.jpg" alt="Image 1" style="height: 500px; width: 500px;">
+            <img src="image2.jpg" alt="Image 2" style="height: 500px; width: 500px;">
+            <img src="image3.jpg" alt="Image 3" style="height: 500px; width: 500px;">
+        </div>
+        <button id="start-btn">Start</button>
+        <button id="stop-btn">Stop</button>
+        <button id="prev-btn">&lt;</button>
+        <button id="next-btn">&gt;</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const images = $('#slideshow-images img');
+            let currentIndex = 0;
+            let intervalId = null;
+
+            $('#start-btn').click(function () {
+                intervalId = setInterval(function () {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images.hide();
+                    images.eq(currentIndex).show();
+                }, 1000);
+            });
+
+            $('#stop-btn').click(function () {
+                clearInterval(intervalId);
+            });
+
+            $('#prev-btn').click(function () {
+                images.hide();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                images.eq(currentIndex).show();
+            });
+
+            $('#next-btn').click(function () {
+                images.hide();
+                currentIndex = (currentIndex + 1) % images.length;
+                images.eq(currentIndex).show();
+            });
+
+            images.hide();
+            images.eq(currentIndex).show();
+        });
+    </script>
+
+</body>
+
+</html>

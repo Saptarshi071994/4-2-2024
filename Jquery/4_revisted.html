@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 style="text-align: center">User Registration</h1>
+
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fname"><strong>First Name</strong></label>
+                <input type="text" class="form-control" id="fname" name="fname" />
+            </div>
+
+            <div class="form-group">
+                <label for="lname"><strong>Last Name</strong></label>
+                <input type="text" class="form-control" id="lname" name="lname" />
+            </div>
+
+            <div class="form-group">
+                <strong>Course</strong><br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="coursePhysics" name="courses"
+                                value="Physics">
+                            <label class="form-check-label" for="coursePhysics">Physics</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="courseChemistry" name="courses"
+                                value="Chemistry">
+                            <label class="form-check-label" for="courseChemistry">Chemistry</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="courseMaths" name="courses"
+                                value="Maths">
+                            <label class="form-check-label" for="courseMaths">Maths</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="courseEnglish" name="courses"
+                                value="English">
+                            <label class="form-check-label" for="courseEnglish">English</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dateOfBirth"><strong>Date of Birth</strong></label>
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" min="1900-01-01" />
+            </div>
+
+            <div class="form-group">
+                <strong>Gender</strong>
+                <div id="gender">
+                    <input type="radio" id="genderMale" name="gender" value="Male">
+                    <label for="genderMale">Male</label>
+                    <input type="radio" id="genderFemale" name="gender" value="Female">
+                    <label for="genderFemale">Female</label>
+                    <input type="radio" id="genderOther" name="gender" value="Other">
+                    <label for="genderOther">Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="state"><strong>State</strong></label>
+                <select class="form-control" id="state" name="state">
+                    <option value="">Select a State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="phone"><strong>Phone</strong></label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" />
+            </div>
+
+            <div class="form-group">
+                <label for="email"><strong>Email</strong></label>
+                <input type="email" class="form-control" id="email" name="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comments"><strong>Comments</strong></label>
+                <textarea class="form-control" id="comments" name="comments" rows="2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="fileUpload"><strong>Upload File</strong></label>
+                <input type="file" class="form-control-file" id="fileUpload" name="fileUpload"
+                    accept=".jpg, .jpeg .webp" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="password"><strong>Password</strong></label>
+                <input type="password" class="form-control" id="password" name="password" />
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword"><strong>Re-enter Password</strong></label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" />
+            </div>
+
+            <div id="message" class="text-danger"></div><br>
+
+            <div style="display: flex">
+                <button type="submit" class="btn btn-primary" id="registerButton"
+                    style="margin-right: 5px; width: 100px;">Register</button>
+                <button type="button" class="btn btn-success" id="saveChangesButton"
+                    style="display: none; margin-right: 5px; width: 100px;">Save</button>
+                <button type="button" class="btn btn-secondary" id="resetButton"
+                    style="margin-right: 5px; width: 100px;">Reset</button>
+            </div>
+        </form>
+
+        <hr />
+
+        <img id="preview" style="display: block; max-width: 100%; max-height: 400px; margin: 0 auto;" />
+
+        <hr />
+
+        <h2 style="text-align: center">Registered Users</h2>
+
+        <table id="userTable" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id No</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Course</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>State</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Comments</th>
+                    <th>File</th>
+                    <th>Last Updated</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Table body content will be inserted dynamically -->
+            </tbody>
+        </table>
+
+        
+        <button id="convert" style="display: block; margin: 0 auto;">convert</button>
+
+    </div>
+</body>
+</html>
